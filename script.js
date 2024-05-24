@@ -1,7 +1,11 @@
     console.log("Hello world!")
 
+//Scores variables
 
-//Getting CPU output
+let humanScore = 0
+let computerScore = 0
+
+//Getting CPU choice
 
     function getComputerChoice() {
         
@@ -20,4 +24,27 @@
             return cpunumber
         }
     }
+
+//Getting Human input
+
+    function getHumanChoice() {
+        let Choice = prompt("Please enter either Paper, Rock or Scissors!")
+        Choice = Choice[0].toUpperCase() + Choice.slice(1)
+        console.log(Choice)
+
+        
+    }
+
+//let Answer = getHumanChoice()
+//Answer = Answer[0].toUpperCase() + Answer.slice(1)
+
+//Playing single round
+
+    function playRound(humanChoice, computerChoice) {
+        humanChoice = Answer
+        computerChoice = getComputerChoice()
+
+    }
+
 console.log(getComputerChoice())
+console.log(getHumanChoice())
