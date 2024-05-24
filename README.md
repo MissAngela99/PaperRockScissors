@@ -13,6 +13,6 @@ compare the computer choice with player input:
     paper > rock
     rock > scissors
     scissors > paper
-    anthing else === draw
+    anything else === draw
 
 loop 5 times. add points after the comparison

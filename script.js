@@ -1,4 +1,4 @@
-    console.log("Hello world!")
+    console.log("Let's play a game of Paper, rock, scissors!")
 
 //Scores variables
 
@@ -25,26 +25,47 @@ let computerScore = 0
         }
     }
 
-//Getting Human input
-
-    function getHumanChoice() {
-        let Choice = prompt("Please enter either Paper, Rock or Scissors!")
-        Choice = Choice[0].toUpperCase() + Choice.slice(1)
-        console.log(Choice)
-
-        
-    }
-
-//let Answer = getHumanChoice()
-//Answer = Answer[0].toUpperCase() + Answer.slice(1)
 
 //Playing single round
 
     function playRound(humanChoice, computerChoice) {
-        humanChoice = Answer
+
+//Getting Human input
+
+        function getHumanChoice() {
+            Choice = prompt("Please enter either Paper, Rock or Scissors!")
+            return Choice[0].toUpperCase() + Choice.slice(1).toLowerCase()
+        }
+
+        humanChoice = getHumanChoice()
         computerChoice = getComputerChoice()
 
+        if (humanChoice == "Paper" && computerChoice == "Rock") {
+            console.log("You got a point!")
+            return humanScore += 1
+
+        } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+            console.log("You got a point!")
+            return humanScore += 1
+
+        } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
+            console.log("You got a point!")
+            return humanScore += 1
+
+        } else if (humanChoice === computerChoice) {
+            console.log("Draw!")
+            return humanScore += 1
+        } else {
+            console.log("You lose, one point to the computer!")
+            return computerScore += 1
+        }
+    }
+    
+
+    if (humanScore <  5 || computerScore < 5) {
+        playRound()
+    } else if (humanScore == 5 || computerScore == 5) {
+        
     }
 
-console.log(getComputerChoice())
-console.log(getHumanChoice())
+playRound()
