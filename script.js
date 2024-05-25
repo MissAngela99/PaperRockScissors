@@ -19,16 +19,13 @@ let computerScore = 0
 
         } else if(cpunumber >= 0.66) {
             return "Scissors"
-
-        } else {
-            return cpunumber
-        }
     }
+}
 
 
 //Playing single round
 
-    function playRound(humanChoice, computerChoice) {
+    function playRound() {
 
 //Getting Human input
 
@@ -37,35 +34,62 @@ let computerScore = 0
             return Choice[0].toUpperCase() + Choice.slice(1).toLowerCase()
         }
 
+        //Playing the game
+
         humanChoice = getHumanChoice()
         computerChoice = getComputerChoice()
 
         if (humanChoice == "Paper" && computerChoice == "Rock") {
-            console.log("You got a point!")
+            console.log("Computer chose Rock, You got a point!")
+            alert("Computer chose Rock, You got a point!")
             return humanScore += 1
 
         } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
-            console.log("You got a point!")
+            console.log("Computer chose Scissors, You got a point!")
+            alert("Computer chose Scissors, You got a point!")
             return humanScore += 1
 
         } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
-            console.log("You got a point!")
+            console.log("Computer chose Paper, You got a point!")
+            alert("Computer chose Paper, You got a point!")
             return humanScore += 1
 
         } else if (humanChoice === computerChoice) {
             console.log("Draw!")
-            return humanScore += 1
-        } else {
-            console.log("You lose, one point to the computer!")
+            alert("Draw!")
+
+        } else if (humanChoice == "Rock" && computerChoice == "Paper") {
+            console.log("Computer chose Paper! One point to the computer!")
+            alert("Computer chose Paper! One point to the computer!")
             return computerScore += 1
+
+        } else if (humanChoice == "Scissors" && computerChoice == "Rock") {
+            console.log("Computer chose Rock! One point to the computer!")
+            alert("Computer chose Rock! One point to the computer!")
+            return computerScore += 1
+
+        } else if (humanChoice == "Paper" && computerChoice == "Scissors") {
+            console.log("Computer Chose Scissors! One point to the computer!")
+            alert("Computer Chose Scissors! One point to the computer!")
+            return computerScore += 1
+
+        } else {
+            window.confirm("You entered the wrong word, try again - paper, rock or scissors!")
         }
     }
     
 
-    if (humanScore <  5 || computerScore < 5) {
+    while (humanScore <  5 || computerScore < 5) {
         playRound()
-    } else if (humanScore == 5 || computerScore == 5) {
-        
-    }
+        console.log("Your score: " + humanScore, "Cpu score: " + computerScore)
 
-playRound()
+        if (humanScore == 5) { 
+            alert("You got 5 points, you win!")
+            console.log("You got 5 points, you win!")
+            break
+        } else if (computerScore == 5) {
+            alert("Computer got 5 points, you lost!")
+            console.log("Computer got 5 points, you lost!")
+            break
+        }
+    }
