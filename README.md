@@ -1,6 +1,8 @@
 # PaperRockScissors
 A game of paper rock scissor
 
+pseudocode:
+
 Randomize computer choice:
     <= 0.33 = paper
     > 0.33 && < 0.66 = rock
