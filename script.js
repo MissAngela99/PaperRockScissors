@@ -1,4 +1,6 @@
-    console.log("Let's play a game of Paper, rock, scissors!")
+//Title
+
+ console.log("Let's play a game of Paper, rock, scissors!")
 
 //Scores variables
 
