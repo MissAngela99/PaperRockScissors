@@ -23,6 +23,24 @@ let computerScore = 0
             return "Scissors"
     }
 }
+//getting player inpu
+
+    const buttonPaper = document.getElementById("Paper");
+    buttonPaper.addEventListener("click", () => {
+        console.log("Paper!");
+    });
+    
+    const buttonRock = document.getElementById("Rock");
+    buttonRock.addEventListener("click", () => {
+        console.log("Rock!");
+    });
+
+    const buttonScissors = document.getElementById("Scissors");
+    buttonScissors.addEventListener("click", () => {
+        console.log("Scissors!");
+    });
+
+
 
 
 //Playing single round
@@ -38,8 +56,8 @@ let computerScore = 0
 
         //Playing the game
 
-        humanChoice = getHumanChoice()
-        computerChoice = getComputerChoice()
+        let humanChoice = getHumanChoice
+        let computerChoice = getComputerChoice()
 
         if (humanChoice == "Paper" && computerChoice == "Rock") {
             console.log("Computer chose Rock, You got a point!")
@@ -75,11 +93,10 @@ let computerScore = 0
             alert("Computer Chose Scissors! One point to the computer!")
             return computerScore += 1
 
-        } else {
-            window.confirm("You entered the wrong word, try again - paper, rock or scissors!")
-        }
     }
-    
+
+
+// 5 rounds logic
 
     while (humanScore <  5 || computerScore < 5) {
         playRound()
@@ -95,3 +112,4 @@ let computerScore = 0
             break
         }
     }
+}
