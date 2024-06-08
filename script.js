@@ -25,21 +25,17 @@ let computerScore = 0
 }
 //getting player inpu
 
-    const buttonPaper = document.getElementById("Paper");
-    buttonPaper.addEventListener("click", () => {
-        console.log("Paper!");
-    });
-    
-    const buttonRock = document.getElementById("Rock");
-    buttonRock.addEventListener("click", () => {
-        console.log("Rock!");
-    });
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
 
-    const buttonScissors = document.getElementById("Scissors");
-    buttonScissors.addEventListener("click", () => {
-        console.log("Scissors!");
+            let newList = document.querySelector("ul");
+            let newLine = document.createElement("li");
+            newLine.textContent = 'You chose ' + button.id + '!'
+            newList.appendChild(newLine)
+            
+        });
     });
-
 
 
 
@@ -48,15 +44,15 @@ let computerScore = 0
     function playRound() {
 
 //Getting Human input
-
+/*
         function getHumanChoice() {
             Choice = prompt("Please enter either Paper, Rock or Scissors!")
             return Choice[0].toUpperCase() + Choice.slice(1).toLowerCase()
         }
-
+*/
         //Playing the game
 
-        let humanChoice = getHumanChoice
+        let humanChoice = buttons
         let computerChoice = getComputerChoice()
 
         if (humanChoice == "Paper" && computerChoice == "Rock") {
@@ -94,10 +90,10 @@ let computerScore = 0
             return computerScore += 1
 
     }
-
+    }
 
 // 5 rounds logic
-
+/*
     while (humanScore <  5 || computerScore < 5) {
         playRound()
         console.log("Your score: " + humanScore, "Cpu score: " + computerScore)
@@ -112,4 +108,4 @@ let computerScore = 0
             break
         }
     }
-}
+*/
