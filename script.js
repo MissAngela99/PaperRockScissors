@@ -38,9 +38,6 @@ let computerLine = document.createElement("li");
         button.addEventListener("click", () => {
             
             let newLine = document.createElement("li");
-            
-            newLine.textContent = 'You chose ' + button.id + '! And your opponent chose ' + getComputerChoice() 
-            newList.appendChild(newLine);
 
             const humanChoice = button.id;
             playRound(humanChoice);
@@ -53,17 +50,17 @@ let computerLine = document.createElement("li");
             let computerChoice = getComputerChoice();
             
             if (humanChoice == "Paper" && computerChoice == "Rock") {
-                scoreLine.textContent = "You won!";
+                scoreLine.textContent = "You chose paper and your opponent chose rock, You won!";
                 newList.appendChild(scoreLine);
                 return humanScore += 1;
     
             } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
-                scoreLine.textContent = "You won!";
+                scoreLine.textContent = "You chose rock and your opponent chose scissors, You won!";
                 newList.appendChild(scoreLine);
                 return humanScore += 1;
             
             } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
-                scoreLine.textContent = "You won!";
+                scoreLine.textContent = "You chose scissors and your opponent chose paper, You won!";
                 newList.appendChild(scoreLine);
                 return humanScore += 1;
      
@@ -72,17 +69,17 @@ let computerLine = document.createElement("li");
                 newList.appendChild(scoreLine);
             
             } else if (humanChoice == "Rock" && computerChoice == "Paper") {
-                scoreLine.textContent = "You lost!";
+                scoreLine.textContent = "You chose rock and your opponent chose paper, You lost!";
                 newList.appendChild(scoreLine);
                 return computerScore += 1;
             
             } else if (humanChoice == "Scissors" && computerChoice == "Rock") {
-                scoreLine.textContent = "You lost!";
+                scoreLine.textContent = "You chose scissors and your opponent chose rock, You lost!";
                 newList.appendChild(scoreLine);
                 return computerScore += 1;
             
             } else if (humanChoice == "Paper" && computerChoice == "Scissors") {
-                scoreLine.textContent = "You lost!";
+                scoreLine.textContent = "You chose paper and your opponent chose scissors, You lost!";
                 newList.appendChild(scoreLine);
                 return computerScore += 1;
             
@@ -97,7 +94,7 @@ let computerLine = document.createElement("li");
     resetButton.addEventListener("click", () => {
         newList.textContent = '';
     })
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 9; i++) {
             playRound();
 
             if (humanScore === 5) {
