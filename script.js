@@ -6,7 +6,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
-let round = 0;
+let newScore = 0;
 
 let newList = document.querySelector(".list");
 let resultList = document.querySelector(".result");
@@ -44,41 +44,41 @@ let computerLine = document.createElement("li");
 
         });
         
-        function playRound(humanChoice) {
+        function playRound(hmnChoice) {
     
             let scoreLine = document.createElement("li");
             let computerChoice = getComputerChoice();
             
-            if (humanChoice == "Paper" && computerChoice == "Rock") {
+            if (hmnChoice == "Paper" && computerChoice == "Rock") {
                 scoreLine.textContent = "You chose paper and your opponent chose rock, You won!";
                 newList.appendChild(scoreLine);
                 return humanScore += 1;
     
-            } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+            } else if (hmnChoice == "Rock" && computerChoice == "Scissors") {
                 scoreLine.textContent = "You chose rock and your opponent chose scissors, You won!";
                 newList.appendChild(scoreLine);
                 return humanScore += 1;
             
-            } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
+            } else if (hmnChoice == "Scissors" && computerChoice == "Paper") {
                 scoreLine.textContent = "You chose scissors and your opponent chose paper, You won!";
                 newList.appendChild(scoreLine);
                 return humanScore += 1;
      
-            } else if (humanChoice === computerChoice) {
+            } else if (hmnChoice === computerChoice) {
                 scoreLine.textContent = "Draw!";
                 newList.appendChild(scoreLine);
             
-            } else if (humanChoice == "Rock" && computerChoice == "Paper") {
+            } else if (hmnChoice == "Rock" && computerChoice == "Paper") {
                 scoreLine.textContent = "You chose rock and your opponent chose paper, You lost!";
                 newList.appendChild(scoreLine);
                 return computerScore += 1;
             
-            } else if (humanChoice == "Scissors" && computerChoice == "Rock") {
+            } else if (hmnChoice == "Scissors" && computerChoice == "Rock") {
                 scoreLine.textContent = "You chose scissors and your opponent chose rock, You lost!";
                 newList.appendChild(scoreLine);
                 return computerScore += 1;
             
-            } else if (humanChoice == "Paper" && computerChoice == "Scissors") {
+            } else if (hmnChoice == "Paper" && computerChoice == "Scissors") {
                 scoreLine.textContent = "You chose paper and your opponent chose scissors, You lost!";
                 newList.appendChild(scoreLine);
                 return computerScore += 1;
@@ -86,34 +86,28 @@ let computerLine = document.createElement("li");
                 }
             }
 
-    let buttonPress = document.querySelector("button")
-    buttonPress.addEventListener("click", () => {
+const resetButton = document.createElement("button")
+resetButton.textContent = "Click to clear the logs!"
+resetButton.addEventListener("click", () => {
+    newList.textContent = ''
+});
 
-    let resetButton = document.createElement("button");
-    resetButton.textContent = 'CLEAR'
-    resetButton.addEventListener("click", () => {
-        newList.textContent = '';
-    })
-        for (let i = 0; i < 9; i++) {
-            playRound();
+button.addEventListener("click", () => {
+  
+        if (humanScore == 5) {
+            humanScore = 0;
+            computerScore = 0;
+            alert("You Won! Congrats!");
+            newList.appendChild(resetButton)
 
-            if (humanScore === 5) {
-                alert("You won!");
-                humanScore = 0;
-                computerScore = 0;
-                newList.textContent = ''
-                break;
-
-            } else if (computerScore === 5) {
-                alert("You lost!");
-                humanScore = 0;
-                computerScore = 0;
-                newList.textContent = ''
-                break;
-            }
-        }
-    })
-
+        } else if (computerScore == 5) {
+            humanScore = 0;
+            computerScore = 0;
+            alert("You Lost, try again!");
+            newList.appendChild(resetButton)
+        };
+    
+});
 
             
 
